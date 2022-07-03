@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { Redirect,Route } from "react-router-dom";
+import LoginScreen from "../screens/LoginScreen";
+import RegisterScreen from "../screens/RegisterScreen";
 import { authContext } from "./Auth";
 function ProtectedRoute({ component:Component, ...rest }) {
     const Auth = useContext(authContext)

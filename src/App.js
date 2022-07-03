@@ -8,6 +8,8 @@ import ProfileScreen from './screens/ProfileScreen'
 import ProtectedRoute from './contexts/ProtectedRoute'
 import GlobalContext from './contexts/Globals'
 import UploadVideoScreen from './screens/UploadVideoScreen'
+import LoginScreen from './screens/LoginScreen'
+import VideoScreen from './screens/VideoScreen'
 function App () {
   return (
     <Router>
@@ -17,10 +19,11 @@ function App () {
             <NavBar />
             <Switch>
               <Route exact path='/' component={WelcomeScreen} />
-
-              <Route exact path='/register' component={RegisterScreen} />
-              <ProtectedRoute exact path='/profile' component={ProfileScreen} />
-              <ProtectedRoute exact path='/add-video' component={UploadVideoScreen} />
+              <Route path='/register' component={RegisterScreen} />
+              <Route path='/login' component={LoginScreen} />
+              <ProtectedRoute path='/profile' component={ProfileScreen} />
+              <ProtectedRoute path='/add-video' component={UploadVideoScreen} />
+              <ProtectedRoute path='/video/:videoId' component={VideoScreen} />
             </Switch>
           </AuthContext>
         </GlobalContext>

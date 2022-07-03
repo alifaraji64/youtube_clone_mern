@@ -7,12 +7,10 @@ function RegisterScreen() {
     const[username,setUsername] = useState('');
     const[email,setEmail] = useState('');
     const[password,setPassword] = useState('');
-    const[authenticated, setAuthenticated] = useState(false)
     const handleRegister = async(e)=>{
         e.preventDefault();
-        Auth.toggleIsAuthenticated();
         if(!username || !email || !password){
-            Global.showAlert({text:'all of the fields are required',type:'error'})
+            Global.showAlert({text:'all of the fields are required', type:'error'})
             return;
         }
         try {

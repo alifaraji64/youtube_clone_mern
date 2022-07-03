@@ -16,7 +16,8 @@ function AuthContext ({ children }) {
   }
   function logout(){
     setAuthenticated(false);
-    setToken('')
+    setToken('');
+    history.replace('/login');
   }
 
   return (
