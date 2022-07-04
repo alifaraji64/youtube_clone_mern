@@ -4,11 +4,12 @@ export const globalContext = createContext()
 function GlobalContext ({ children }) {
   const client = new Web3Storage({
     token:
-      ''
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDI5MTE4NzJjNzJDZjIyNkE0YTZEQ0RjMjM2NTRFMzBEREU3NGJlRTAiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NTQwNzY1NzIxMzEsIm5hbWUiOiJmbHV0dGVyX3Rva2VuIn0.suwy6RUx-ce61ZYPnd_LV1JeHiVjfpTG4dIK06yJdZs'
   })
   const [isError, setIsError] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [alertText, setAlertText] = useState('')
+  const [userId, setUserId] = useState('gggg')
   function showAlert ({ text, type }) {
     console.log(type)
     type == 'error' ? setIsError(true) : setIsSuccess(true)
@@ -36,7 +37,9 @@ function GlobalContext ({ children }) {
         value={{
           showAlert,
           setAlertText,
-          client
+          client,
+          setUserId,
+          userId
         }}
       >
         {children}

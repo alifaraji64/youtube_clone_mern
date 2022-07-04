@@ -14,14 +14,14 @@ function RegisterScreen() {
             return;
         }
         try {
-            let res = await fetch('http://localhost:8080/auth/register',
+            let res = await fetch('https://18b8-51-81-154-37.ngrok.io/auth/register',
             {
                 method:'POST',
                 headers:{'content-type':'application/json'},
                 body:JSON.stringify({username,email,password})
         })
         if(res.status!=200){
-            res.json().then(res2=>Global.showAlert(res2.error))
+            res.json().then(res2=>Global.showAlert({text:res2.error,type:'success'}))
         }
         res.json().then(res2=>{
             Auth.setTokenHandle(res2.token);
